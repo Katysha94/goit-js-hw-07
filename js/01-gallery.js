@@ -17,7 +17,26 @@ alt="${description}"
 </a>
 </li>`).join("");
 
+const handleListClick = (event) => {
+      event.preventDefault();
+    if (event.currentTarget === event.target) {
+    return;
+}
+    const selectedImage = event.target.getAttribute('data-source')
+    
+    const modal = basicLightbox.create( `<img src="${selectedImage}"  width="1400" height="900" style = "border: 10px inset #EEE8AA"; />`);
+    
+    modal.show();
+    
+    const closeModalImg = (evt) => {
+        if (evt.key === 'Escape') {
+            modal.close()
+        }
+    }
+
+    galleryList.addEventListener('keydown', closeModalImg);
+}
 
 galleryList.insertAdjacentHTML("beforeend", renderList(galleryItems));
 
-// galleryList.addEventListener('click', )
+galleryList.addEventListener('click', handleListClick)
