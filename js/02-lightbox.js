@@ -15,4 +15,12 @@ alt="${description}"
 </a>
 </li>`).join("");
 
-galleryList.insertAdjacentHTML("beforeend", itemList(galleryItems))
+galleryList.insertAdjacentHTML("beforeend", itemList(galleryItems));
+
+const lightbox = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionsData: 'alt',
+    captionDelay: 250,
+    overlayOpacity: 0.5,
+    showCounter: true,
+ });
