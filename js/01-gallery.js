@@ -30,13 +30,18 @@ const handleListClick = (event) => {
     
     const closeModalImg = (evt) => {
         if (evt.key === 'Escape') {
-            modal.close()
+            modal.close();
+            removeKeyListener();
         }
     }
 
     galleryList.addEventListener('keydown', closeModalImg);
+    const removeKeyListener = () => {
+        galleryList.removeEventListener('keydown', closeModalImg);
+    };
 }
 
 galleryList.insertAdjacentHTML("beforeend", renderList(galleryItems));
 
 galleryList.addEventListener('click', handleListClick)
+

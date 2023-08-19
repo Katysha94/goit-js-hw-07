@@ -17,7 +17,7 @@ alt="${description}"
 
 galleryList.insertAdjacentHTML("beforeend", itemList(galleryItems));
 
-const lightbox = new SimpleLightbox('.gallery a', {
+new SimpleLightbox('.gallery a', {
     captions: true,
     captionsData: 'alt',
     captionDelay: 250,
